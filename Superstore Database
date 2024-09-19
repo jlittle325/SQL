@@ -29,22 +29,22 @@ VALUES
 
 #For this project, I used SQL to query the Superstore database to retrieve information about items sold at the store and their prices.
 
--- 1. Write a SQL query that orders the items by price.
+#1. Write a SQL query that orders the items by price.
 SELECT item_name,price
 FROM superstore
 ORDER BY price;
 
--- 2. Write a SQL query that shows the SUM of price for Electronics.
+#2. Write a SQL query that shows the SUM of price for Electronics.
 SELECT SUM(price)
 FROM superstore
 WHERE category = 'Electronics';
 
--- 3. Write a SQL query that shows the MAX price for an item in the category of Kitchen Supplies.
+#3. Write a SQL query that shows the MAX price for an item in the category of Kitchen Supplies.
 Select MAX(price)
 FROM superstore
 WHERE category = 'Kitchen Supplies';
 
--- 4. What is the stock quantity for each item in Electronics? Order by the item name.
+#4. What is the stock quantity for each item in Electronics? Order by the item name.
 SELECT stock_quantity,item_name
 FROM superstore
 WHERE category = 'Electronics'
