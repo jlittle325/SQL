@@ -60,19 +60,19 @@ VALUES
 
 #Analysis:
 
-# Which companies provide at least 15 paid time off days and healthcare benefits?
+#1. Which companies provide at least 15 paid time off days and healthcare benefits?
 SELECT company_name
 FROM fortune_companies
 WHERE paid_time_off_days >=15
 AND healthcare_benefits=1;
 
-# Which industries have an average revenue of at least 150 billion and what are their average revenues?
+#2. Which industries have an average revenue of at least 150 billion and what are their average revenues?
 SELECT ROUND(AVG(revenue),1) AS avg_revenue_billion
 FROM fortune_companies
 GROUP BY industry
 HAVING avg_revenue_billion>=150;
 
-# Assign all companies in the Healthcare industry as "mother friendly workplace", "standard", or "substandard" based on the maternity leave.
+#3. Assign all companies in the Healthcare industry as "mother friendly workplace", "standard", or "substandard" based on the maternity leave.
 SELECT company_name,
 CASE WHEN maternity_leave_weeks>=10 THEN "mother friendly workplace"
 WHEN maternity_leave_weeks>=8 THEN "standard"
@@ -81,13 +81,13 @@ END AS mother_friendliness
 FROM fortune_companies
 WHERE industry="Healthcare";
 
-# Which company in the Technology industry has the least average employee tenure and what is their tenure?
+#4. Which company in the Technology industry has the least average employee tenure and what is their tenure?
 SELECT company_name, MIN(avg_employee_tenure)
 FROM fortune_companies
 WHERE industry = "Technology";
 
 
-# Which company in the Healthcare industry has the highest revenue? 
+#5. Which company in the Healthcare industry has the highest revenue? 
 SELECT company_name, MAX(revenue)
 FROM fortune_companies
 WHERE industry = "Healthcare";
